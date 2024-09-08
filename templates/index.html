@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <!-- Jumbotron Section -->
+  <div class="jumbotron text-center p-5 bg-light text-black rounded-3">
+    <h1 class="display-4">Welcome to the Honeypot Application</h1>
+    <p class="lead">
+      Monitor and track unauthorized access attempts with ease.
+    </p>
+    {% if user %}
+    <p class="mt-3"><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    
+    {% else %}
+    <p class="mt-3">
+      Please <a href="/login" class="text-decoration-none">log in</a> or
+      <a href="/register" class="text-decoration-none">register</a> to continue.
+    </p>
+    <a class="btn btn-primary btn-lg mt-3" href="/login" role="button">Login</a>
+    <a
+      class="btn btn-outline-primary btn-lg mt-3"
+      href="/register"
+      role="button"
+      >Register</a
+    >
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
